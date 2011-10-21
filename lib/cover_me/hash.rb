@@ -1,5 +1,5 @@
 class Hash # :nodoc:
-  
+
   def to_mash
     h = self.dup
     h.each do |k, v|
@@ -9,5 +9,5 @@ class Hash # :nodoc:
     end
     Hashie::Mash.new(h)
   end
-  
+
 end

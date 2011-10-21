@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CoverMe::Processor do
-  
+
   before(:each) do
     @formatter = CoverMe::HtmlFormatter.new
     @processor = CoverMe::Processor.new({
@@ -10,9 +10,9 @@ describe CoverMe::Processor do
       File.join(CoverMe.config.project.root, 'other/foo.rb') => [1, 2, 3, 4]
     }, :formatter => @formatter)
   end
-  
+
   describe "process!" do
-    
+
     it "should process the results of the coverage" do
       @formatter.should_receive(:format_report).twice
       @formatter.should_receive(:format_index).once
@@ -20,7 +20,7 @@ describe CoverMe::Processor do
       @processor.index.should_not be_nil
       @processor.index.reports.size.should == 2
     end
-    
+
   end
-  
+
 end

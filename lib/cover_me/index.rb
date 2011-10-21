@@ -1,11 +1,11 @@
 # Used to generate an index page for the code coverage.
 class CoverMe::Index
   attr_accessor :reports
-  
+
   def initialize(reports = []) # :nodoc:
     self.reports = reports
   end
-  
+
   # Returns the total number of lines across all files.
   def total_lines
     unless @total_lines
@@ -13,7 +13,7 @@ class CoverMe::Index
     end
     return @total_lines
   end
-  
+
   # Returns the total number of lines of code across all files.
   def total_loc
     unless @total_loc
@@ -21,7 +21,7 @@ class CoverMe::Index
     end
     return @total_loc
   end
-  
+
   # Returns an average percent across all files.
   def percent_tested
     unless @percent_tested
@@ -31,5 +31,5 @@ class CoverMe::Index
     end
     return @percent_tested
   end
-  
+
 end

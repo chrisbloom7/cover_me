@@ -1,8 +1,8 @@
 module CoverMe
   module Results
-    
+
     class << self
-      
+
       def read_results(path = CoverMe.config.results.store)
         data = {}
         if File.exists?(path)
@@ -10,11 +10,11 @@ module CoverMe
         end
         return data
       end
-      
+
       def merge_results!(cov_results, path = CoverMe.config.results.store)
-        
+
         data = CoverMe::Results.read_results(path)
-        
+
         cov_results.each do |file, results|
           if data.has_key?(file)
             results.each_with_index do |result, i|
@@ -34,11 +34,11 @@ module CoverMe
         File.open(path, 'w') do |f|
           f.write(data.inspect)
         end
-        
+
         return data
       end
-      
+
     end
-    
+
   end # Results
 end # CoverMe

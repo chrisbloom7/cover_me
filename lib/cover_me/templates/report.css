@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #666666;
 }
 
-h1 { 
+h1 {
   display: block;
   font-size: 2em;
   letter-spacing: -1px;
@@ -33,7 +33,7 @@ h1 a:visited{
 }
 
 h2 {
-  margin-top: -1em;	
+  margin-top: -1em;
 }
 
 .hit {
