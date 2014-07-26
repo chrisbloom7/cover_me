@@ -8,7 +8,7 @@ class CoverMe::Report
   attr_accessor :lines_executed
   attr_accessor :executed_percent
   attr_accessor :unexecuted_percent
-  
+
   def initialize(filename, coverage = []) # :nodoc:
     self.original_filename = filename
     self.filename = filename.gsub(CoverMe.config.project.root.to_s, '').gsub(/^\//, '')
@@ -24,7 +24,7 @@ class CoverMe::Report
 
     self.unexecuted_percent = (100 - self.executed_percent).round(1)
   end
-  
+
   # Returns <code>'hit'</code> if the file was executed 100%, <code>'near'</code> if the
   # file was executed more than 90%, or <code>'miss'</code> if less than 90%.
   def proximity
@@ -35,7 +35,7 @@ class CoverMe::Report
     end
     return @proximity
   end
-  
+
   # Takes in a number (how much the line was executed) and returns
   # <code>'hit'</code> if the number is greater than <code>0</code>,
   # <code>'miss'</code> if the number is <code>0</code>, and
@@ -45,15 +45,15 @@ class CoverMe::Report
   def hit_type(cov)
     cov ? (cov > 0 ? 'hit' : 'miss') : 'never'
   end
-  
+
   def <=>(other) # :nodoc:
     self.filename <=> other.filename
   end
-  
+
   def exists?
     File.exists?(self.original_filename)
   end
-  
+
   # Reads in the original file and returns an <code>Array</code>
   # representing the lines of that file.
   def source
@@ -62,9 +62,9 @@ class CoverMe::Report
     end
     return @source
   end
-  
+
   # Attempts to find an associated test/spec file.
-  # 
+  #
   # Example:
   #   report = CoverMe::Report.new('/Users/me/app/models/user.rb')
   #   # if using rspec:
@@ -87,7 +87,7 @@ class CoverMe::Report
     end
     return @test_file_name
   end
-  
+
   # Returns the test file, if there is one, as a <code>String</code>
   def test_file
     if self.test_file_name
@@ -95,10 +95,10 @@ class CoverMe::Report
     end
     return nil
   end
-  
+
   # Returns the short name, relative, of the test file, if there is one.
   # Example:
-  # 
+  #
   #   report.test_file_name # => '/Users/me/spec/models/user_spec.rb'
   #   report.short_test_file_name # => 'spec/models/user_spec.rb'
   def short_test_file_name
@@ -109,5 +109,5 @@ class CoverMe::Report
     end
     return @short_test_file_name
   end
-  
+
 end

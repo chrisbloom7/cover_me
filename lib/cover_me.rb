@@ -6,9 +6,9 @@ require 'configatron'
 require 'hashie'
 
 module CoverMe
-  
+
   class << self
-    
+
     def complete!
       data_file = CoverMe.config.results.store
 
@@ -17,13 +17,13 @@ module CoverMe
 
         CoverMe::Processor.new(data).process!
         CoverMe.config.at_exit.call
-        
+
         File.delete(data_file)
       end
     end
-    
+
   end
-  
+
 end
 
 path = File.join(File.dirname(__FILE__), 'cover_me')

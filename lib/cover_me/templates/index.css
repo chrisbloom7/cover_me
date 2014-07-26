@@ -38,7 +38,7 @@ th.header:hover {
 
 .headerSortDown:after {
   content: "\25B2";
-  
+
 /*  margin-left: 1em;*/
 }
 

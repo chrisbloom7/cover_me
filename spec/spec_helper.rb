@@ -10,21 +10,21 @@ end
 CoverMe.config.project.root = File.join(File.dirname(__FILE__), '..', 'fake_project')
 
 Rspec.configure do |config|
-  
+
   config.before(:all) do
-    
+
   end
-  
+
   config.after(:all) do
-    
+
   end
-  
+
   config.before(:each) do
     FileUtils.rm_rf(File.join(CoverMe.config.html_formatter.output_path))
   end
-  
+
   config.after(:each) do
     FileUtils.rm_rf(File.join(CoverMe.config.html_formatter.output_path))
   end
-  
+
 end
